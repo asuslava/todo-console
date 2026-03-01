@@ -14,8 +14,8 @@ A simple console-based TODO application written in Java, using SQLite for task s
 
 ```
 todo-console/
-├─ src/             # Java source code
-├─ todo/data/       # SQLite database
+├─ lib/             # Java source code
+├─ todo/src/       # SQLite database
 ├─ .gitignore
 └─ README.md
 ```
