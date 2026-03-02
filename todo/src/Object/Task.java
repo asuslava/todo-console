@@ -5,8 +5,6 @@ import java.util.UUID;
 
 public class Task {
 
-    private static int counter = 1;
-
     String name;
     String status;
     int number;
@@ -16,8 +14,6 @@ public class Task {
     public Task(String name, String status) {
         this.name = name;
         this.status = status;
-        this.number = counter;
-        counter++;
         this.id = UUID.randomUUID();
         this.date = LocalDate.now();
     }

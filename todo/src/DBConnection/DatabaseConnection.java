@@ -18,8 +18,8 @@ public class DatabaseConnection {
 
         String sql = """
                 CREATE TABLE IF NOT EXISTS tasks (
-                id TEXT PRIMARY KEY,
-                number INTEGER,
+                number INTEGER PRIMARY KEY AUTOINCREMENT,
+                id TEXT UNIQUE,
                 name TEXT NOT NULL,
                 status TEXT NOT NULL,
                 date TEXT NOT NULL

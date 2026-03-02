@@ -17,7 +17,7 @@ public class TaskRepository {
 
         try (Connection conn = DatabaseConnection.getConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM tasks")) {
+        ResultSet rs = stmt.executeQuery("SELECT * FROM tasks ORDER BY number")) {
 
             while (rs.next()) {
                 Task task = new Task(
@@ -69,16 +69,15 @@ public class TaskRepository {
     public static void addTask(Task newTask) {
 
         String sql = """
-                INSERT INTO tasks(id, number, name, status, date) VALUES (?, ?, ?, ?, ?)
+                INSERT INTO tasks(id, name, status, date) VALUES (?, ?, ?, ?)
                 """;
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, newTask.getId().toString());
-            pstmt.setInt(2, newTask.getNumber());
-            pstmt.setString(3, newTask.getName());
-            pstmt.setString(4, newTask.getStatus());
-            pstmt.setString(5, newTask.getDate().toString());
+            pstmt.setString(2, newTask.getName());
+            pstmt.setString(3, newTask.getStatus());
+            pstmt.setString(4, newTask.getDate().toString());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
