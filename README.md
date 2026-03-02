@@ -29,7 +29,8 @@ git clone https://github.com/username/todo-console.git
 ```
 
 2. Open the project in IntelliJ IDEA or another Java IDE  
-3. Run `Main.java`  
+3. Before run the program create package "data" in package "todo"
+4. Run `Main.java`  
 
 - On the first run, the database and `tasks` table will be created automatically.  
 - After that, you can create, view, update, and delete tasks.  
